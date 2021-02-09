@@ -1,0 +1,2 @@
+use docker;
+INSERT INTO `users` (`id`, `name`, `nickname`, `age`) VALUES ('1', 'test1', 't1', '1'),('2', 'test2', 't2', '2'), ('3', 'test3', 't3', '3'),('4', 'test4', 't4', '4'),('5', 'test5', 't5', '5');

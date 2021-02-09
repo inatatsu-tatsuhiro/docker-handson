@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  server:
+    image: node:14
+    working_dir: /app
+    volumes: 
+      - ./server:/app
+    ports:
+      - 3000:3000
+    command: yarn start
+  
+  front:
+    image: node:14
+    working_dir: /app
+    volumes:
+        - ./front:/app
+    ports:
+        - 3333:3000
+    command: yarn start
+
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./src/front/build:/var/www
+      - ./docker/:/etc/nginx/conf.d/
+    depends_on:
+      - front
